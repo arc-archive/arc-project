@@ -4,7 +4,7 @@ This module contains UIs and the logic to support API projects in Advanced REST 
 
 [![Published on NPM](https://img.shields.io/npm/v/@advanced-rest-client/arc-project.svg)](https://www.npmjs.com/package/@advanced-rest-client/arc-project)
 
-[![Build Status](https://travis-ci.com/advanced-rest-client/arc-project.svg)](https://travis-ci.com/advanced-rest-client/arc-project)
+[![Tests and publishing](https://github.com/advanced-rest-client/arc-project/actions/workflows/deployment.yml/badge.svg)](https://github.com/advanced-rest-client/arc-project/actions/workflows/deployment.yml)
 
 ## Usage
 

@@ -1,7 +1,7 @@
 import { fixture, assert, html, aTimeout } from '@open-wc/testing';
 import { DataGenerator } from '@advanced-rest-client/arc-data-generator';
 import '@advanced-rest-client/arc-models/project-model.js';
-import { ArcModelEventTypes } from '@advanced-rest-client/arc-models';
+import { ArcModelEventTypes } from '@advanced-rest-client/arc-events';
 import sinon from 'sinon';
 import { loadMonaco } from './MonacoSetup.js';
 import { saveHandler, savingValue } from '../src/ProjectMetaEditorElement.js';

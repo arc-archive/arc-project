@@ -14,8 +14,7 @@ the License.
 */
 import { LitElement, html } from 'lit-element';
 import { RequestsListMixin, SavedListMixin, ListStyles, internals } from '@advanced-rest-client/requests-list';
-import { ArcModelEvents } from '@advanced-rest-client/arc-models';
-import { ExportEvents } from '@advanced-rest-client/arc-events';
+import { ArcModelEvents, ExportEvents } from '@advanced-rest-client/arc-events';
 import '@advanced-rest-client/arc-marked/arc-marked.js';
 import '@advanced-rest-client/arc-icons/arc-icon.js';
 import '@anypoint-web-components/anypoint-menu-button/anypoint-menu-button.js';
@@ -24,7 +23,7 @@ import '@anypoint-web-components/anypoint-item/anypoint-icon-item.js';
 import '@anypoint-web-components/anypoint-button/anypoint-icon-button.js';
 import '@anypoint-web-components/anypoint-button/anypoint-button.js';
 import '@advanced-rest-client/bottom-sheet/bottom-sheet.js';
-import '@advanced-rest-client/arc-ie/export-options.js';
+import '@advanced-rest-client/arc-models/export-options.js';
 import '@material/mwc-snackbar';
 import mdStyles from '@advanced-rest-client/markdown-styles/markdown-styles.js';
 import panelStyles from '@advanced-rest-client/requests-list/src/HistoryPanelStyles.js';

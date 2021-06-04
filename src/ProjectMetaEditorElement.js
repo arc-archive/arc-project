@@ -16,7 +16,7 @@ import { LitElement, html } from 'lit-element';
 import { MonacoTheme, MonacoStyles } from '@advanced-rest-client/monaco-support';
 import '@anypoint-web-components/anypoint-input/anypoint-input.js';
 import '@anypoint-web-components/anypoint-button/anypoint-button.js';
-import { ArcModelEvents } from '@advanced-rest-client/arc-models';
+import { ArcModelEvents } from '@advanced-rest-client/arc-events';
 import elementStyles from './styles/MetaEditor.js';
 
 /* global  monaco */

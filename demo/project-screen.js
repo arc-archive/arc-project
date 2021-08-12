@@ -3,7 +3,7 @@ import { html } from 'lit-html';
 import { DemoPage } from '@advanced-rest-client/arc-demo-helper';
 import { ExportHandlerMixin } from '@advanced-rest-client/arc-demo-helper/src/ExportHandlerMixin.js';
 import * as EncodingHelpers from '@advanced-rest-client/arc-demo-helper/src/EncodingHelpers.js';
-import { DataGenerator } from '@advanced-rest-client/arc-data-generator';
+import { ArcMock } from '@advanced-rest-client/arc-data-generator';
 import { MonacoLoader } from '@advanced-rest-client/monaco-support';
 import '@advanced-rest-client/arc-demo-helper/arc-interactive-demo.js';
 import '@advanced-rest-client/arc-models/request-model.js';
@@ -13,12 +13,10 @@ import '@anypoint-web-components/anypoint-button/anypoint-button.js';
 import '@anypoint-web-components/anypoint-checkbox/anypoint-checkbox.js';
 import '@anypoint-web-components/anypoint-radio-button/anypoint-radio-button.js';
 import '@anypoint-web-components/anypoint-radio-button/anypoint-radio-group.js';
-import '@advanced-rest-client/arc-ie/arc-data-export.js';
 import '@advanced-rest-client/arc-menu/projects-menu.js';
 import '@advanced-rest-client/arc-menu/history-menu.js';
 import '@advanced-rest-client/arc-menu/saved-menu.js';
-import { ImportEvents, ArcNavigationEventTypes } from '@advanced-rest-client/arc-events';
-import { ArcModelEvents } from '@advanced-rest-client/arc-models'
+import { ImportEvents, ArcNavigationEventTypes, ArcModelEvents } from '@advanced-rest-client/arc-events';
 import '../project-screen.js';
 
 class ComponentPage extends ExportHandlerMixin(DemoPage) {
@@ -30,7 +28,7 @@ class ComponentPage extends ExportHandlerMixin(DemoPage) {
     ]);
     this.componentName = 'Project screen';
     this.demoStates = ['Filled', 'Outlined', 'Anypoint'];
-    this.generator = new DataGenerator();
+    this.generator = new ArcMock();
     this.compatibility = false;
     this.listType = 'default';
     this.renderViewControls = true;
@@ -87,18 +85,18 @@ class ComponentPage extends ExportHandlerMixin(DemoPage) {
   }
 
   async generateRequests() {
-    const projects = await this.generator.insertProjectsData();
-    await this.generator.insertSavedRequestData({
-      requestsSize: 100,
-      forceProject: true,
+    const projects = await this.generator.store.insertProjects();
+    await this.generator.store.insertSaved(100, projects.length, {
       projects,
+      forceProject: true,
+    }, {
       autoRequestId: true,
     });
     ImportEvents.dataImported(document.body);
   }
 
   async clearRequests() {
-    await this.generator.destroySavedRequestData();
+    await this.generator.store.destroySaved();
     ImportEvents.dataImported(document.body);
   }
 

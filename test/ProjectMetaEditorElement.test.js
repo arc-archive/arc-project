@@ -1,5 +1,5 @@
 import { fixture, assert, html, aTimeout } from '@open-wc/testing';
-import { DataGenerator } from '@advanced-rest-client/arc-data-generator';
+import { ArcMock } from '@advanced-rest-client/arc-data-generator';
 import '@advanced-rest-client/arc-models/project-model.js';
 import { ArcModelEventTypes } from '@advanced-rest-client/arc-events';
 import sinon from 'sinon';
@@ -10,7 +10,7 @@ import '../project-meta-editor.js';
 /** @typedef {import('../src/ProjectMetaEditorElement').ProjectMetaEditorElement} ProjectMetaEditorElement */
 
 describe('ProjectMetaEditorElement', () => {
-  const gen = new DataGenerator();
+  const gen = new ArcMock();
 
   /**
    * @param {any=} project
@@ -40,7 +40,7 @@ describe('ProjectMetaEditorElement', () => {
     let element = /** @type ProjectMetaEditorElement */ (null);
     let project;
     beforeEach(async () => {
-      [project] = gen.generateProjects({ projectsSize: 1 });
+      project = gen.http.project();
       element = await basicFixture();
     });
 
@@ -74,7 +74,7 @@ describe('ProjectMetaEditorElement', () => {
   describe('Form rendering', () => {
     let element = /** @type ProjectMetaEditorElement */ (null);
     beforeEach(async () => {
-      const project = gen.generateProjects({ projectsSize: 1 })[0];
+      const project = gen.http.project();
       element = await basicFixture(project);
     });
 
@@ -114,7 +114,7 @@ describe('ProjectMetaEditorElement', () => {
   describe('cancel()', () => {
     let element = /** @type ProjectMetaEditorElement */ (null);
     beforeEach(async () => {
-      const project = gen.generateProjects({ projectsSize: 1 })[0];
+      const project = gen.http.project();
       element = await basicFixture(project);
     });
 
@@ -138,7 +138,7 @@ describe('ProjectMetaEditorElement', () => {
     let element = /** @type ProjectMetaEditorElement */ (null);
     let project;
     beforeEach(async () => {
-      [project] = (await gen.insertProjectsData({ projectsSize: 1 }));
+      [project] = (await gen.store.insertProjects(1));
       element = await modelFixture(project);
     });
 

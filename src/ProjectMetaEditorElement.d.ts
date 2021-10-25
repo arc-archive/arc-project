@@ -30,6 +30,7 @@ export declare const saveHandler: unique symbol;
 
 /**
  * @fires close
+ * @deprecated Use `@advanced-rest-client/app` instead.
  */
 export declare class ProjectMetaEditorElement extends LitElement {
   static get styles(): CSSResult[];

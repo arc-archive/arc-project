@@ -1,4 +1,8 @@
-# Advanced REST Client Project
+# Deprecated
+
+This component is deprecated. Use `@advanced-rest-client/app` instead.
+
+----
 
 This module contains UIs and the logic to support API projects in Advanced REST CLient.
 

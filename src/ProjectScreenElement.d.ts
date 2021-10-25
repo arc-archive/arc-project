@@ -27,6 +27,9 @@ export declare const editorHandler: unique symbol;
 export declare const metaEditorClose: unique symbol;
 export declare const sheetClosedHandler: unique symbol;
 
+/**
+ * @deprecated Use `@advanced-rest-client/app` instead.
+ */
 export declare class ProjectScreenElement extends SavedListMixin(RequestsListMixin(LitElement)) {
   static get styles(): CSSResult;
 
